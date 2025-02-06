@@ -23,7 +23,7 @@ class NumberedTileTest {
         // ~
         assertFalse(Tiles.Man(2).isDora(Tiles.Pin(1)))
         // ~
-        assertTrue(Tiles.RedMan(5).isDora(Tiles.Man(4)))
-        assertTrue(Tiles.Man(6).isDora(Tiles.RedMan(5)))
+        assertTrue(Tiles.RedMan.isDora(Tiles.Man(4)))
+        assertTrue(Tiles.Man(6).isDora(Tiles.RedMan))
     }
 }

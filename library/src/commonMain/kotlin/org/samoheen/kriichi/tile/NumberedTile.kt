@@ -39,5 +39,7 @@ sealed class NumberedTile(
     companion object {
         const val MIN_NUMBER = 1
         const val MAX_NUMBER = 9
+
+        const val RED_DEFAULT_NUMBER = 5
     }
 }

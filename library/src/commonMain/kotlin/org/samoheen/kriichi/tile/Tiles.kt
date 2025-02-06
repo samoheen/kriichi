@@ -6,9 +6,9 @@ object Tiles {
     class Pin(override val number: Int): NumberedTile(number, Suit.PIN, false)
     class Sou(override val number: Int): NumberedTile(number, Suit.SOU, false)
     // Red
-    class RedMan(override val number: Int): NumberedTile(number, Suit.MAN, true)
-    class RedPin(override val number: Int): NumberedTile(number, Suit.PIN, true)
-    class RedSou(override val number: Int): NumberedTile(number, Suit.SOU, true)
+    data object RedMan: NumberedTile(RED_DEFAULT_NUMBER, Suit.MAN, true)
+    data object RedPin: NumberedTile(RED_DEFAULT_NUMBER, Suit.PIN, true)
+    data object RedSou: NumberedTile(RED_DEFAULT_NUMBER, Suit.SOU, true)
     // Dragons
     data object WhiteDragon: DragonTile(DragonType.WHITE)
     data object GreenDragon: DragonTile(DragonType.GREEN)
@@ -72,3 +72,15 @@ fun Tile.isHonor() = isDragon() || isWind()
  * if a tile is not numbered from 2-8, then it is a non-simple.
  */
 fun Tile.isNonSimple() = !isSimple()
+
+
+/**
+ * Akadora 「赤ドラ」, akapai 「赤牌」, or red dora are tiles marked in red. Unlike dora indicators,
+ * having the red tile itself in your hand counts as a dora.
+ */
+fun Tile.isAkadora(): Boolean {
+    if (this !is NumberedTile) {
+        return false
+    }
+    return red
+}
