@@ -3,7 +3,7 @@ package org.samoheen.kriichi.scoring
 import org.samoheen.kriichi.tile.Tile
 import org.samoheen.kriichi.tile.isAkadora
 
-class DoraHanCounter(
+internal class DoraHanCounter(
     private val subject: Tile,
     private val indicators: List<Tile>
 ): HanCounter {
@@ -20,24 +20,24 @@ class DoraHanCounter(
         return result
     }
 
-    class Builder(private val subject: Tile) {
-
-        var indicators: List<Tile> = emptyList()
-
-        fun build(): DoraHanCounter =
-            DoraHanCounter(subject, indicators)
-    }
-
     companion object {
         private const val HAN_FOR_AKADORA = 1
     }
 }
 
+class DoraHanCounterBuilder(private val subject: Tile) {
+
+    var indicators: List<Tile> = emptyList()
+
+    internal fun build(): DoraHanCounter =
+        DoraHanCounter(subject, indicators)
+}
+
 fun doraHanCounter(
     subject: Tile,
-    builder: DoraHanCounter.Builder.() -> Unit = {}
-): DoraHanCounter {
-    return DoraHanCounter.Builder(subject)
+    builder: DoraHanCounterBuilder.() -> Unit = {}
+): HanCounter {
+    return DoraHanCounterBuilder(subject)
         .apply(builder)
         .build()
 }
