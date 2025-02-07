@@ -10,7 +10,7 @@ class DragonTileTest {
     fun `test dora indicator`() {
         assertTrue(Tiles.Dragon.Green.isDora(Tiles.Dragon.White))
         assertTrue(Tiles.Dragon.Red.isDora(Tiles.Dragon.Green))
-        assertTrue(Tiles.Dragon.White.isDora(Tiles.Dragon.White))
+        assertTrue(Tiles.Dragon.White.isDora(Tiles.Dragon.Red))
         // ~
         assertFalse(Tiles.Dragon.White.isDora(Tiles.Pin(1)))
     }
