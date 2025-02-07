@@ -3,15 +3,12 @@ package org.samoheen.kriichi.scoring
 import org.samoheen.kriichi.tile.Tiles
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFails
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class DoraHanCounterTest {
 
     @Test
     fun `test akadora`() {
-        assertEquals(1, doraHanCounter(Tiles.RedPin).count())
+        assertEquals(1, doraHanCounter(Tiles.RedFive.Pin).count())
     }
 
     @Test
@@ -34,7 +31,7 @@ class DoraHanCounterTest {
     fun `test multiple doras`() {
         assertEquals(
             3,
-            doraHanCounter(Tiles.RedSou) {
+            doraHanCounter(Tiles.RedFive.Sou) {
                 indicators = listOf(Tiles.Sou(4), Tiles.Sou(4))
             }.count()
         )
