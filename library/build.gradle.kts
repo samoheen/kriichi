@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -7,7 +8,7 @@ plugins {
 }
 
 group = "org.badpost.kriichi"
-version = "0.1.0"
+version = "0.1.0-SNAPSHOT"
 
 kotlin {
     jvm()
@@ -41,5 +42,37 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.DEFAULT)
+    signAllPublications()
+
+    coordinates("org.badpost.kriichi", "kriichi", "0.1.0-SNAPSHOT")
+
+    pom {
+        name.set("kriichi")
+        description.set("Mahjong Riichi domain logic implementation for KMP.")
+        inceptionYear.set("2025")
+        licenses {
+            license {
+                name.set("The MIT License (MIT)")
+                url.set("https://github.com/samoheen/kriichi/blob/master/LICENSE.txt")
+                distribution.set("https://github.com/samoheen/kriichi/blob/master/LICENSE.txt")
+            }
+        }
+        developers {
+            developer {
+                id.set("samoheen")
+                name.set("Sam O'Heen")
+                url.set("https://github.com/samoheen/")
+            }
+        }
+        scm {
+            url.set("https://github.com/samoheen/kriichi/")
+            connection.set("scm:git:git://github.com/samoheen/kriichi.git")
+            developerConnection.set("scm:git:ssh://git@github.com/samoheen/kriichi.git")
+        }
     }
 }
