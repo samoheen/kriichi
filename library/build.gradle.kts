@@ -46,10 +46,10 @@ android {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.DEFAULT)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
-    coordinates("org.badpost.kriichi", "kriichi", "0.1.0-SNAPSHOT")
+    coordinates(group.toString(), "kriichi", version.toString())
 
     pom {
         name.set("kriichi")
