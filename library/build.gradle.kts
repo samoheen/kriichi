@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "org.samoheen.kriichi"
+group = "org.badpost.kriichi"
 version = "1.0.0"
 
 kotlin {
@@ -37,7 +37,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.samoheen.kriichi"
+    namespace = "org.badpost.kriichi"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()

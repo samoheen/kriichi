@@ -1,4 +1,4 @@
-package org.samoheen.kriichi.tile
+package org.badpost.tile
 
 sealed class NumberedTile(
     open val number: Int,

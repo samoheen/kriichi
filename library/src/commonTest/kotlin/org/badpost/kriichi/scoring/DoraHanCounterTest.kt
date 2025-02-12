@@ -1,6 +1,7 @@
-package org.samoheen.kriichi.scoring
+package org.badpost.kriichi.scoring
 
-import org.samoheen.kriichi.tile.Tiles
+import org.badpost.scoring.doraHanCounter
+import org.badpost.tile.Tiles
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

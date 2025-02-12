@@ -1,7 +1,7 @@
-package org.samoheen.kriichi.scoring
+package org.badpost.scoring
 
-import org.samoheen.kriichi.tile.Tile
-import org.samoheen.kriichi.tile.isAkadora
+import org.badpost.tile.Tile
+import org.badpost.tile.isAkadora
 
 internal class DoraHanCounter(
     private val subject: Tile,
