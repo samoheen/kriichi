@@ -1,4 +1,4 @@
-package org.samoheen.kriichi.tile
+package org.badpost.kriichi.tile
 
 sealed class DragonTile(
     val type: DragonType

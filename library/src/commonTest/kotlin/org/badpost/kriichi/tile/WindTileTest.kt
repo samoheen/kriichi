@@ -1,5 +1,6 @@
-package org.samoheen.kriichi.tile
+package org.badpost.kriichi.tile
 
+import org.badpost.kriichi.tile.Tiles
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
