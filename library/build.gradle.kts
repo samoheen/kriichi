@@ -1,9 +1,7 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
@@ -12,16 +10,7 @@ version = "0.1.0"
 
 kotlin {
     jvm()
-    androidTarget {
-        publishLibraryVariants("release")
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_1_8)
-        }
-    }
-    iosX64()
     iosArm64()
-    iosSimulatorArm64()
-    linuxX64()
 
     sourceSets {
         val commonMain by getting {
@@ -37,14 +26,6 @@ kotlin {
     }
 }
 
-android {
-    namespace = "org.badpost.kriichi"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
-}
-
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
@@ -52,27 +33,28 @@ mavenPublishing {
     coordinates(group.toString(), "kriichi", version.toString())
 
     pom {
-        name.set("kriichi")
-        description.set("Mahjong Riichi domain logic implementation for KMP.")
-        inceptionYear.set("2025")
+        name = "kriichi"
+        description = "Mahjong Riichi domain logic implementation for KMP."
+        inceptionYear = "2025"
+        url = "https://github.com/samoheen/"
         licenses {
             license {
-                name.set("The MIT License (MIT)")
-                url.set("https://github.com/samoheen/kriichi/blob/master/LICENSE.txt")
-                distribution.set("https://github.com/samoheen/kriichi/blob/master/LICENSE.txt")
+                name = "The MIT License (MIT)"
+                url = "https://github.com/samoheen/kriichi/blob/master/LICENSE.txt"
+                distribution = "https://github.com/samoheen/kriichi/blob/master/LICENSE.txt"
             }
         }
         developers {
             developer {
-                id.set("samoheen")
-                name.set("Sam O'Heen")
-                url.set("https://github.com/samoheen/")
+                id = "samoheen"
+                name = "Sam O'Heen"
+                url = "https://github.com/samoheen/"
             }
         }
         scm {
-            url.set("https://github.com/samoheen/kriichi/")
-            connection.set("scm:git:git://github.com/samoheen/kriichi.git")
-            developerConnection.set("scm:git:ssh://git@github.com/samoheen/kriichi.git")
+            url = "https://github.com/samoheen/kriichi/"
+            connection = "scm:git:git://github.com/samoheen/kriichi.git"
+            developerConnection = "scm:git:ssh://git@github.com/samoheen/kriichi.git"
         }
     }
 }

@@ -1,4 +1,4 @@
-package org.badpost.tile
+package org.badpost.kriichi.tile
 
 object Tiles {
     // Numbered
