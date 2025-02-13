@@ -1,5 +1,5 @@
 package org.badpost.kriichi.tile
 
-sealed interface Tile {
+interface Tile {
     fun isDora(indicator: Tile): Boolean
 }
